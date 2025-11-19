@@ -1,0 +1,10 @@
+Authentication Page CSS missing issue
+https://stackoverflow.com/questions/58111841/auth-pages-not-getting-css-in-laravel
+
+
+User Role Management
+
+Tutorial Link
+https://www.itsolutionstuff.com/post/laravel-9-user-roles-and-permissions-tutorialexample.html#:~:text=After%20register%20user%2C%20you%20don,%2Dedit%2C%20product%2Ddelete.
+
+
