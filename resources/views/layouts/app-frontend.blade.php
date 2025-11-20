@@ -28,10 +28,12 @@
     {{-- <link rel="stylesheet" href="{{ asset('public/front-end/scss/lc_lightbox.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
     <link rel="stylesheet" href="{{ asset('public/front-end/css/style.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('public/front-end/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/front-end/scss/mahbub-style.css') }}">
     <link rel="stylesheet" href="{{ asset('public/front-end/scss/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('public/front-end/scss/rony-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/front-end/scss/rony-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/front-end/scss/ishwardi-style.css') }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
@@ -312,24 +314,24 @@
                                 <li>
                                     <div class="header-social">
                                         @if (!empty($commonData['contant_info'][0]['facebook']))
-                                            <a href="{{ $commonData['contant_info'][0]['facebook'] }}"
+<a href="{{ $commonData['contant_info'][0]['facebook'] }}"
                                                 target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                        @endif
+@endif
 
                                         @if (!empty($commonData['contant_info'][0]['linkedin']))
-                                            <a href="{{ $commonData['contant_info'][0]['linkedin'] }}"
+<a href="{{ $commonData['contant_info'][0]['linkedin'] }}"
                                                 target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                        @endif
+@endif
 
                                         @if (!empty($commonData['contant_info'][0]['twiter']))
-                                            <a href="{{ $commonData['contant_info'][0]['twiter'] }}"
+<a href="{{ $commonData['contant_info'][0]['twiter'] }}"
                                                 target="_blank"><i class="fab fa-twitter"></i></a>
-                                        @endif
+@endif
 
                                         @if (!empty($commonData['contant_info'][0]['youtube']))
-                                            <a href="{{ $commonData['contant_info'][0]['youtube'] }}"
+<a href="{{ $commonData['contant_info'][0]['youtube'] }}"
                                                 target="_blank"><i class="fab fa-youtube"></i></a>
-                                        @endif
+@endif
                                     </div>
                                 </li>
                                 <li><i class="fas fa-user"></i><a href="{{ url('login') }}"
@@ -369,7 +371,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                who we are
+                                about us
                             </a>
                             <ul class="dropdown-menu sub-menu">
 
@@ -461,10 +463,10 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('our-client') }}"> Clients</a>
+                            <a class="nav-link" href="{{ url('our-client') }}"> Sponsors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('news-event') }}">News & Events </a>
+                            <a class="nav-link" href="{{ url('news-event') }}"> Events </a>
                         </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('events') }}">Events</a>
@@ -472,9 +474,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('photo-gallery') }}">Gallery</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('career') }}">Career</a>
-                        </li>
+                        </li> --}}
                         {{-- <li class="nav-item">
                             <a class="nav-link" href=""></a>
                         </li> --}}
@@ -482,7 +484,7 @@
 
                     <div class="">
                         <div class="header-button">
-                            <a href="{{ url('contact') }}" class="as-btn text-white">Contact Us</a>
+                            <a href="{{ url('contact') }}" class="as-btn text-white">Register Now</a>
                         </div>
                     </div>
                 </div>
@@ -517,31 +519,29 @@
                                 <p class="about-text" style="width:275px;">
                                     @php
                                         $count = 1;
-                                        $shortDescription = json_decode($commonData['default_info']['short_description']);
+                                        $shortDescription = json_decode(
+                                            $commonData['default_info']['short_description'],
+                                        );
 
                                     @endphp
 
                                     @if (!empty($shortDescription))
                                         @foreach ($shortDescription as $sD)
-                                      
                                             {{ $sD }}
-                                            
-                                            @if ($count == 1 )
 
-                                                  <span class="h-5 d-block" style="height: 10px;"></span>
+                                            @if ($count == 1)
+                                                <span class="h-5 d-block" style="height: 10px;"></span>
                                             @elseif($count == 2)
-
                                                 <span class="h-5 d-block"></span>
                                             @endif
 
                                             @php
-                                                $count = $count+1;
+                                                $count = $count + 1;
                                             @endphp
-
                                         @endforeach
                                     @endif
                                 </p>
-								
+
                                 <div class="as-social d-none">
 
                                     @if (!empty($commonData['contant_info'][0]['facebook']))
@@ -693,9 +693,12 @@
 
     <script src="{{ asset('public/front-end/slick/slick.min.js') }}"></script>
     <script src="{{ asset('public/front-end/js/app.min.js') }}"></script>
+    <script src="{{ asset('public/front-end/js/swiper-bundle.min.js') }}"></script>
 
+    <script src="{{ asset('public/front-end/js/ishwardi.js') }}"></script>
 
     <script src="{{ asset('public/front-end/js/main.js') }}"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
         integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async>
@@ -784,7 +787,7 @@
             .progress(1).progress(0)
             .play();
 
-        //Pause/Play		
+        //Pause/Play
         $tickerWrapper.on("mouseenter", function() {
             infinite.pause();
         }).on("mouseleave", function() {
@@ -792,114 +795,58 @@
         });
     </script>
 
-<!-- <<script>
-    $(document).ready(function () {
-        // Function to handle link clicks
-        function handleLinkClick() {
-            // Get the href attribute value and extract the ID
-            var href = $(this).attr('href');
-            var id = href.substring(href.indexOf("#") + 1);
 
-            // Add the class to the section with the extracted ID
-            $('#' + id).addClass('4');
+    <script>
+        $(document).ready(function() {
 
-            // Scroll to the section
-            $('html, body').animate({
-                scrollTop: $('#' + id).offset().top - 60 // Adjust the offset as needed
-            }, 500); // Adjust the animation speed as needed
-        }
+            function handleLinkClick() {
 
-        // Attach click event to all navbar links
-        $('.navbar-nav a').on('click', function (e) {
-            // Call the function to handle the click
-            handleLinkClick.call(this);
+                var href = $(this).attr('href');
+                var id = href.substring(href.indexOf("#") + 1);
 
-            // Prevent the default behavior of the link after scrolling
-            e.preventDefault();
-        });
-    });
-</script> -->
-<!-- <script>
-    $(document).ready(function () {
-        // Function to handle link clicks
-        function handleLinkClick() {
-            // Get the href attribute value and extract the ID
-            var href = $(this).attr('href');
-            var id = href.substring(href.indexOf("#") + 1);
 
-            // Add the class to the section with the extracted ID
-            $('#' + id).addClass('pt-40');
+                $('#' + id).addClass('pt-60');
 
-            // Scroll to the section
-            $('html, body').animate({
-                scrollTop: $('#' + id).offset().top - 60 // Adjust the offset as needed
-            }, 500, function () {
-                // Update the URL with the section ID
-                history.pushState(null, null, '#' + id);
-            });
-        }
 
-        // Attach click event to all navbar links
-        $('.navbar-nav a').on('click', function (e) {
-            // Call the function to handle the click
-            handleLinkClick.call(this);
+                $('html, body').animate({
+                    scrollTop: $('#' + id).offset().top - 60
+                }, 500, function() {
 
-            // Prevent the default behavior of the link after scrolling
-            e.preventDefault();
-        });
-    });
-</script> -->
-<script>
-    $(document).ready(function () {
-        // Function to handle link clicks
-        function handleLinkClick() {
-            // Get the href attribute value and extract the ID
-            var href = $(this).attr('href');
-            var id = href.substring(href.indexOf("#") + 1);
-
-            // Add the class to the section with the extracted ID
-            $('#' + id).addClass('pt-60');
-
-            // Scroll to the section
-            $('html, body').animate({
-                scrollTop: $('#' + id).offset().top - 60 // Adjust the offset as needed
-            }, 500, function () {
-                // Update the URL with the section ID
-                history.pushState(null, null, '#' + id);
-            });
-        }
-
-        // Function to handle link hover
-        function handleLinkHover() {
-            // Get the href attribute value and extract the ID
-            var href = $(this).attr('href');
-            var id = href.substring(href.indexOf("#") + 1);
-
-            // Remove the class from the section with the extracted ID when hovering
-            $('#' + id).removeClass('pt-60');
-        }
-
-        // Attach click event to all navbar links
-        $('.navbar-nav a').on('click', function (e) {
-            // Call the function to handle the click
-            handleLinkClick.call(this);
-
-            // Prevent the default behavior of the link after scrolling
-            e.preventDefault();
-        });
-
-        // Attach hover event to all navbar links
-        $('.navbar-nav a').hover(
-            function () {
-                // Call the function to handle the hover
-                handleLinkHover.call(this);
-            },
-            function () {
-                // Do something on hover out if needed
+                    history.pushState(null, null, '#' + id);
+                });
             }
-        );
-    });
-</script>
+
+
+            function handleLinkHover() {
+
+                var href = $(this).attr('href');
+                var id = href.substring(href.indexOf("#") + 1);
+
+
+                $('#' + id).removeClass('pt-60');
+            }
+
+
+            $('.navbar-nav a').on('click', function(e) {
+
+                handleLinkClick.call(this);
+
+
+                e.preventDefault();
+            });
+
+
+            $('.navbar-nav a').hover(
+                function() {
+
+                    handleLinkHover.call(this);
+                },
+                function() {
+                    // Do something on hover out if needed
+                }
+            );
+        });
+    </script>
 </body>
 
 </html>
