@@ -482,9 +482,12 @@
                         </li> --}}
                     </ul>
 
-                    <div class="">
+                    <div class="d-flex">
                         <div class="header-button">
                             <a href="{{ url('contact') }}" class="as-btn text-white">Register Now</a>
+                        </div>
+                        <div class="header-button">
+                            <a href="{{ url('login') }}" class="as-btn text-white">log in</a>
                         </div>
                     </div>
                 </div>

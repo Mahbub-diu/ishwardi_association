@@ -1,33 +1,120 @@
 @mixin transX-center {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }
 @mixin transY-center {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
 @mixin trans-center {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
 
 @mixin no-radius {
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+@mixin breakpoint($point) {
+    @if $point==xsmall {
+        @media (min-width: 450px) {
+            @content;
+        }
+    } @else if $point==max-xxsmall {
+        @media (max-width: 450px) {
+            @content;
+        }
+    }
+    @if $point==xxs {
+        @media (min-width: 470px) {
+            @content;
+        }
+    } @else if $point==max-xxs {
+        @media (max-width: 470px) {
+            @content;
+        }
+    }
+    @if $point==xs {
+        @media (min-width: 500px) {
+            @content;
+        }
+    } @else if $point==max-xs {
+        @media (max-width: 500px) {
+            @content;
+        }
+    }
+    @if $point==sm {
+        @media (min-width: 576px) {
+            @content;
+        }
+    } @else if $point==max-sm {
+        @media (max-width: 575px) {
+            @content;
+        }
+    } @else if $point==md {
+        @media (min-width: 768px) {
+            @content;
+        }
+    } @else if $point==max-md {
+        @media (max-width: 767px) {
+            @content;
+        }
+    } @else if $point==lg {
+        @media (min-width: 992px) {
+            @content;
+        }
+    } @else if $point==max-lg {
+        @media (max-width: 991px) {
+            @content;
+        }
+    } @else if $point==xl {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    } @else if $point==max-xl {
+        @media (max-width: 1199px) {
+            @content;
+        }
+    } @else if $point==xxl {
+        @media (min-width: 1400px) {
+            @content;
+        }
+    } @else if $point==max-xxl {
+        @media (max-width: 1399px) {
+            @content;
+        }
+    } @else if $point==xxxl {
+        @media (min-width: 1600px) {
+            @content;
+        }
+    } @else if $point==max-xxxl {
+        @media (max-width: 1600px) {
+            @content;
+        }
+    } @else if $point==x4l {
+        @media (min-width: 1800px) {
+            @content;
+        }
+    } @else if $point==max-x4l {
+        @media (max-width: 1800px) {
+            @content;
+        }
+    }
 }
