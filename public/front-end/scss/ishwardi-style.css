@@ -38,6 +38,20 @@ fieldset.common-fieldset.pb-0 {
   padding-bottom: 0 !important;
 }
 
+.form-check {
+  position: relative;
+  z-index: 10;
+}
+
+.form-check-input {
+  position: relative;
+  z-index: 11;
+}
+
+.form-check-label {
+  display: inline;
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -761,27 +775,27 @@ ul.flex-items-center {
   background: #06d666;
   color: #fff;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-check {
+.member-dashboard-main .dashboard-details-box .form-check {
   margin-bottom: 20px;
   padding-left: 0;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-check .form-check-label {
+.member-dashboard-main .dashboard-details-box .form-check .form-check-label {
   text-transform: capitalize;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 500;
   color: #000;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-check .form-check-label::before {
+.member-dashboard-main .dashboard-details-box .form-check .form-check-label::before {
   border-color: rgba(145, 158, 171, 0.32);
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-check input[type=checkbox]:checked ~ label:before {
+.member-dashboard-main .dashboard-details-box .form-check input[type=checkbox]:checked ~ label:before {
   border-color: #06d666;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group {
+.member-dashboard-main .dashboard-details-box .form-group {
   margin-bottom: 20px;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group .form-label {
+.member-dashboard-main .dashboard-details-box .form-group .form-label {
   text-transform: capitalize;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
@@ -789,7 +803,7 @@ ul.flex-items-center {
   color: #000;
   margin-bottom: 10px;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group .form-control {
+.member-dashboard-main .dashboard-details-box .form-group .form-control {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -801,10 +815,10 @@ ul.flex-items-center {
   height: unset;
   border: 1px solid rgba(145, 158, 171, 0.32);
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group .form-control:focus {
+.member-dashboard-main .dashboard-details-box .form-group .form-control:focus {
   border-color: #000;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group .form-select {
+.member-dashboard-main .dashboard-details-box .form-group .form-select {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -815,21 +829,21 @@ ul.flex-items-center {
   line-height: 1;
   border: 1px solid rgba(145, 158, 171, 0.32);
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group select,
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group .form-control,
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group .form-select,
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group textarea,
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group input {
+.member-dashboard-main .dashboard-details-box .form-group select,
+.member-dashboard-main .dashboard-details-box .form-group .form-control,
+.member-dashboard-main .dashboard-details-box .form-group .form-select,
+.member-dashboard-main .dashboard-details-box .form-group textarea,
+.member-dashboard-main .dashboard-details-box .form-group input {
   height: 45px;
   padding: 10px 15px;
   padding-right: unset;
   background-color: #fff;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group .form-control:disabled,
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .form-group .form-control[readonly] {
+.member-dashboard-main .dashboard-details-box .form-group .form-control:disabled,
+.member-dashboard-main .dashboard-details-box .form-group .form-control[readonly] {
   background-color: #e9ecef;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .update-profile-btn {
+.member-dashboard-main .dashboard-details-box .update-profile-btn {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -837,14 +851,14 @@ ul.flex-items-center {
   justify-content: center;
   margin-top: 30px;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .update-profile-btn .as-btn {
+.member-dashboard-main .dashboard-details-box .update-profile-btn .as-btn {
   color: #000;
   width: 200px;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .update-profile-btn .as-btn:hover {
+.member-dashboard-main .dashboard-details-box .update-profile-btn .as-btn:hover {
   color: #fff;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .update-profile-btn .prevBtn {
+.member-dashboard-main .dashboard-details-box .update-profile-btn .prevBtn {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -862,14 +876,25 @@ ul.flex-items-center {
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane .update-profile-btn .prevBtn:hover {
+.member-dashboard-main .dashboard-details-box .update-profile-btn .prevBtn:hover {
   background: #f89939;
   color: #fff;
 }
-.member-dashboard-main .dashboard-details-box .update-address-info-tab .tab-pane h3 {
+.member-dashboard-main .dashboard-details-box h3 {
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 20px;
   font-family: "Roboto", sans-serif;
+}
+.member-dashboard-main .dashboard-details-box .payment-lists .list-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9ebec;
+  padding: 5px 0;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 600;
 }/*# sourceMappingURL=ishwardi-style.css.map */

@@ -41,3 +41,14 @@ ul {
 fieldset.common-fieldset.pb-0 {
     padding-bottom: 0 !important;
 }
+.form-check {
+    position: relative;
+    z-index: 10;
+}
+.form-check-input {
+    position: relative;
+    z-index: 11;
+}
+.form-check-label {
+    display: inline;
+}
