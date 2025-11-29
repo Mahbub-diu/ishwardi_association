@@ -67,10 +67,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button type="button" class="btn user-login-btn next-step-btn">Next</button>
+                                        <button type="button" class="btn user-login-btn next-step-btn">Send
+                                            otp</button>
                                     </div>
                                     <div class="forget-passowrd">
                                         Forgot your password ? <a href="#">Reset Password</a>
+                                    </div>
+                                    <div class="dont-account">
+                                        Don’t have an account? <a href="{{ url('register') }}">Sign Up</a>
                                     </div>
                                 </form>
                             </div>

@@ -26,6 +26,8 @@ use App\Http\Controllers\PortalController;
 
 use App\Http\Controllers\PortalControllerNewVersion;
 
+use App\Http\Controllers\MemberDashboardController;
+
 use App\Http\Controllers\MailController;
 
 /*
@@ -128,72 +130,82 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => ['auth']], function() {
-	
-	
-	Route::resource('services', ServiceController::class);
-	Route::delete('services/{id}', [ServiceController::class, 'destroy'])->name('services.delete');
-	
+Route::group(['middleware' => ['auth']], function () {
+
+
+    Route::resource('services', ServiceController::class);
+    Route::delete('services/{id}', [ServiceController::class, 'destroy'])->name('services.delete');
+
     Route::resource('roles', RoleController::class);
-	Route::delete('roles/{id}', [UserController::class, 'destroy'])->name('roles.delete');
-    
-	Route::resource('service-cover-areas', ServiceCoverAreaController::class);
-	Route::delete('service-cover-areas/{id}', [ServiceCoverAreaController::class, 'destroy'])->name('service-cover-areas.delete');
-	
-	
+    Route::delete('roles/{id}', [UserController::class, 'destroy'])->name('roles.delete');
+
+    Route::resource('service-cover-areas', ServiceCoverAreaController::class);
+    Route::delete('service-cover-areas/{id}', [ServiceCoverAreaController::class, 'destroy'])->name('service-cover-areas.delete');
+
+
     Route::resource('users', UserController::class);
     Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.delete');
     Route::get('/get-role-wise-permission-list/{id}', [App\Http\Controllers\UserController::class, 'seeRolePermission']);
 
-	
-	Route::resource('page-top-configurations', PageTopConfigurationController::class);
-    Route::delete('page-top-configurations/{id}', [PageTopConfigurationController::class, 'destroy'])->name('page-top-configurations.delete');
-   
 
-	Route::resource('company-details', CompanyDetailController::class);
-	//Route::post('company-details/store', 'CompanyDetailController@store')->name('company_details.store');
-	Route::delete('company-details/{id}', [CompanyDetailController::class, 'destroy'])->name('company-details.delete');
-	
-	Route::resource('our-clients', OurClientController::class);
+    Route::resource('page-top-configurations', PageTopConfigurationController::class);
+    Route::delete('page-top-configurations/{id}', [PageTopConfigurationController::class, 'destroy'])->name('page-top-configurations.delete');
+
+
+    Route::resource('company-details', CompanyDetailController::class);
+    //Route::post('company-details/store', 'CompanyDetailController@store')->name('company_details.store');
+    Route::delete('company-details/{id}', [CompanyDetailController::class, 'destroy'])->name('company-details.delete');
+
+    Route::resource('our-clients', OurClientController::class);
     Route::delete('our-clients/{id}', [OurClientController::class, 'destroy'])->name('our-clients.delete');
-	
-	Route::resource('ongoing-activities', OngoingActivityController::class);
-	Route::resource('completed-activities', OngoingActivityController::class);
+
+    Route::resource('ongoing-activities', OngoingActivityController::class);
+    Route::resource('completed-activities', OngoingActivityController::class);
     Route::delete('ongoing-activities/{id}', [OngoingActivityController::class, 'destroy'])->name('ongoing-activities.delete');
     Route::get('ongoing-activities-submit-approve-publish/{id}', [OngoingActivityController::class, 'submitApprovePublish'])->name('ongoing-activities.submit-approve-publish');
     Route::get('ongoing-activities-reject-unpublish/{id}', [OngoingActivityController::class, 'rejectUnpublish'])->name('ongoing-activities.reject-unpublish');
-	Route::get('/get-service-cover-area/{id}', [App\Http\Controllers\OngoingActivityController::class, 'ajaxLoadServiceCoverArea']);
-	
-	
-	Route::resource('single-updates', SingleUpdateController::class);
+    Route::get('/get-service-cover-area/{id}', [App\Http\Controllers\OngoingActivityController::class, 'ajaxLoadServiceCoverArea']);
+
+
+    Route::resource('single-updates', SingleUpdateController::class);
     Route::delete('single-updates/{id}', [SingleUpdateController::class, 'destroy'])->name('single-updates.delete');
-	Route::get('single-updates-submit-approve-publish/{id}', [SingleUpdateController::class, 'submitApprovePublish'])->name('single-updates.submit-approve-publish');
+    Route::get('single-updates-submit-approve-publish/{id}', [SingleUpdateController::class, 'submitApprovePublish'])->name('single-updates.submit-approve-publish');
     Route::get('single-updates-reject-unpublish/{id}', [SingleUpdateController::class, 'rejectUnpublish'])->name('single-updates.reject-unpublish');
-	
-	
-	Route::resource('appreciations', AppreciationController::class);
+
+
+    Route::resource('appreciations', AppreciationController::class);
     Route::delete('appreciations/{id}', [AppreciationController::class, 'destroy'])->name('appreciations.delete');
-	
-	Route::resource('gallery-categories', GalleryCategoryController::class);
+
+    Route::resource('gallery-categories', GalleryCategoryController::class);
     Route::delete('gallery-categories/{id}', [GalleryCategoryController::class, 'destroy'])->name('gallery-categories.delete');
-	
-	Route::resource('galleries', GalleryController::class);
+
+    Route::resource('galleries', GalleryController::class);
     Route::delete('galleries/{id}', [GalleryController::class, 'destroy'])->name('galleries.delete');
-	
-	Route::resource('contact-us', ContactUsController::class);
+
+    Route::resource('contact-us', ContactUsController::class);
     Route::delete('contact-us/{id}', [ContactUsController::class, 'destroy'])->name('contact-us.delete');
-	
-	Route::resource('about-infos', AboutInfoController::class);
+
+    Route::resource('about-infos', AboutInfoController::class);
     Route::delete('about-infos/{id}', [AboutInfoController::class, 'destroy'])->name('about-infos.delete');
-	
-	Route::resource('about-info-landing-pages', AboutInfoLandingPageController::class);
+
+    Route::resource('about-info-landing-pages', AboutInfoLandingPageController::class);
     Route::delete('about-info-landing-pages/{id}', [AboutInfoLandingPageController::class, 'destroy'])->name('about-info-landing-pages.delete');
-	
-	Route::resource('core-teams', CoreTeamController::class);
+
+    Route::resource('core-teams', CoreTeamController::class);
     Route::delete('core-teams/{id}', [CoreTeamController::class, 'destroy'])->name('core-teams.delete');
-	
-	Route::resource('careers', CareerController::class);
+
+    Route::resource('careers', CareerController::class);
     Route::delete('careers/{id}', [CareerController::class, 'destroy'])->name('careers.delete');
-	
-	
 });
+
+// routes added by mahbub
+
+Route::get('/update-buy-membership', [MemberDashboardController::class, 'updateBuyMembership'])
+    ->name('member.update.buy.membership');
+
+
+Route::get('/update-member-profile', [MemberDashboardController::class, 'updateMemberProfile'])
+    ->name('member.update.profile');
+
+Route::get('/buy-membership', [MemberDashboardController::class, 'buyMembership'])
+    ->name('member.buy.membership');

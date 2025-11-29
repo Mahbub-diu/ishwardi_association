@@ -293,7 +293,7 @@ ul.flex-items-center {
     background: #f2f6f9;
     position: relative;
     .login-flex-wrapper {
-        height: 60vh;
+        min-height: 60vh;
         width: 60%;
         position: absolute;
         @include trans-center;
@@ -383,6 +383,7 @@ ul.flex-items-center {
                 font-size: 15px;
                 font-family: $poppins-font;
                 color: #000;
+                text-transform: capitalize;
             }
             .user-login-btn {
                 background: $green;
@@ -410,9 +411,29 @@ ul.flex-items-center {
                 font-weight: 400;
                 a {
                     color: $yellow;
+                    @include transition-four;
+                    &:hover {
+                        color: $green;
+                    }
                 }
             }
-
+            .dont-account {
+                text-align: center;
+                font-family: $poppins-font;
+                font-size: 14px;
+                color: #000;
+                text-transform: capitalize;
+                font-weight: 400;
+                margin-top: 10px;
+                a {
+                    color: $green;
+                    text-decoration: none;
+                    @include transition-four;
+                    &:hover {
+                        color: $yellow;
+                    }
+                }
+            }
             .otp-inputs {
                 display: flex;
                 gap: 12px;
@@ -459,8 +480,7 @@ ul.flex-items-center {
                 }
             }
 
-            /* Resend OTP button styling */
-            #resend-otp-btn {
+            .btn-resend {
                 display: inline-block;
                 background-color: $yellow;
                 color: #fff;
@@ -485,8 +505,325 @@ ul.flex-items-center {
                     background-color: darken($yellow, 10%);
                 }
             }
+            .form-control.is-invalid,
+            .was-validated .form-control:invalid {
+                border-color: #dc3545 !important;
+            }
         }
     }
 }
 
 // login page ends here
+
+// dashboard common banner start
+
+.common-banner-main {
+    padding: 150px 0;
+    text-align: center;
+    padding-bottom: 70px;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 34, 46, 0.7);
+    }
+    .common-banner-text {
+        position: relative;
+        h2 {
+            color: $white;
+            font-family: $poppins-font;
+            font-size: 35px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .breadcrumb {
+            justify-content: center;
+            margin-bottom: 0;
+            li.breadcrumb-item a {
+                color: $white;
+                font-family: $roboto-font;
+                font-size: 14px;
+                font-weight: 400;
+                text-transform: capitalize;
+                @include transition-four;
+                &:hover {
+                    color: $yellow;
+                }
+                &::after {
+                    content: "/";
+                    margin-left: 8px;
+                }
+            }
+            li.breadcrumb-item.active {
+                color: $yellow;
+                font-family: $roboto-font;
+                font-size: 14px;
+                font-weight: 400;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+.member-dashboard-main {
+    padding: 70px 0;
+    .dashboard-sidebar-main {
+        height: 100%;
+        border: 1px solid #fafafa;
+        border-radius: 4px;
+        padding: 20px 20px;
+        .member-profile-image {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            margin: 0px auto;
+            border: 3px solid $green;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                margin-bottom: 10px;
+            }
+        }
+        .name {
+            font-family: $poppins-font;
+            font-size: 20px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 5px;
+        }
+        .mobile {
+            font-family: $roboto-font;
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        .dashboard-sidebar-menu {
+            ul {
+                li {
+                    a {
+                        padding: 5px 0 5px 15px;
+                        text-decoration: none;
+                        font-weight: 400;
+                        font-size: 15px;
+                        border-bottom: 1px solid #e9ebec;
+                        text-transform: capitalize;
+                        font-family: $roboto-font;
+                        color: #000;
+                        display: block;
+                        i {
+                            margin-right: 5px;
+                        }
+                        &:hover,
+                        &.active {
+                            color: $yellow;
+                            border-color: $yellow;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .dashboard-details-box {
+        height: 100%;
+        .custom-buy-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            .single-box {
+                flex: 1;
+                min-width: 200px;
+                background: #f9f9f9;
+                border: 1px solid #e9ebec;
+                border-radius: 4px;
+                padding: 20px 15px;
+                text-align: center;
+                position: relative;
+                @include transition-four;
+                .icon {
+                    width: 50px;
+                    height: 50px;
+                    margin-bottom: 10px;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                    margin: 0px auto;
+                    margin-bottom: 15px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    color: $white;
+                    font-size: 20px;
+                }
+
+                .title {
+                    font-family: $roboto-font;
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #000;
+                    text-transform: capitalize;
+                }
+                &:nth-child(1) {
+                    .icon {
+                        background: #f8993969;
+                    }
+                    &:hover {
+                        border-color: $yellow;
+                    }
+                }
+                &:nth-child(2) {
+                    .icon {
+                        background: #06d6669c;
+                    }
+                    &:hover {
+                        border-color: $green;
+                    }
+                }
+                a {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .update-address-info-tab {
+            .nav-tabs {
+                border: none;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                .nav-item {
+                    flex: 1;
+                    .nav-link {
+                        @include no-radius;
+                        width: 100%;
+                        border: none;
+                        font-size: 16px;
+                        font-family: $poppins-font;
+                        font-weight: 500;
+                        color: #000;
+
+                        &.active {
+                            background: $green;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+            .tab-pane {
+                .form-check {
+                    margin-bottom: 20px;
+                    padding-left: 0;
+                    .form-check-label {
+                        text-transform: capitalize;
+                        font-family: $poppins-font;
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: #000;
+                        &::before {
+                            border-color: rgba(145, 158, 171, 0.32);
+                        }
+                    }
+                    input[type="checkbox"]:checked ~ label:before {
+                        border-color: $green;
+                    }
+                }
+                .form-group {
+                    margin-bottom: 20px;
+                    .form-label {
+                        text-transform: capitalize;
+                        font-family: $poppins-font;
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: #000;
+                        margin-bottom: 10px;
+                    }
+                    .form-control {
+                        @include no-radius;
+                        font-size: 15px;
+                        font-family: $roboto-font;
+                        line-height: 1;
+                        height: unset;
+                        border: 1px solid rgba(145, 158, 171, 0.32);
+                        &:focus {
+                            border-color: #000;
+                        }
+                    }
+                    .form-select {
+                        @include no-radius;
+                        font-size: 15px;
+                        font-family: $roboto-font;
+                        line-height: 1;
+                        border: 1px solid rgba(145, 158, 171, 0.32);
+                    }
+                    select,
+                    .form-control,
+                    .form-select,
+                    textarea,
+                    input {
+                        height: 45px;
+                        padding: 10px 15px;
+                        padding-right: unset;
+                        background-color: $white;
+                    }
+                    .form-control:disabled,
+                    .form-control[readonly] {
+                        background-color: #e9ecef;
+                    }
+                }
+                .update-profile-btn {
+                    text-align: center;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content: center;
+                    margin-top: 30px;
+
+                    .as-btn {
+                        color: #000;
+                        width: 200px;
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                    .prevBtn {
+                        @include no-radius;
+                        width: 200px;
+                        border: 1px solid $yellow;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 1;
+                        padding: 12px 15px;
+                        @include transition-four;
+                        &:hover {
+                            background: $yellow;
+                            color: #fff;
+                        }
+                    }
+                }
+                h3 {
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                    font-family: $roboto-font;
+                }
+            }
+        }
+    }
+}
+
+// dashboard common banner style ends
